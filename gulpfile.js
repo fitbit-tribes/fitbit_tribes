@@ -3,7 +3,7 @@ const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
 const sass = require('gulp-sass');
 const maps = require('gulp-sourcemaps');
-// const minifyCss = require('gulp-clean-css');
+const minifyCss = require('gulp-clean-css');
 const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 const childProcess = require('child_process');
@@ -36,7 +36,7 @@ gulp.task('startservers:test', () => {
   }));
 });
 
-gulp.task('webpack:dev', ['html:dev', 'css:dev'], () => {
+gulp.task('webpack:dev', ['html:dev', 'css:dev', 'img:dev'], () => {
   return gulp.src('app/js/entry.js')
     .pipe(webpackStream({
       devtool: 'source-map',
@@ -59,7 +59,7 @@ gulp.task('sass:dev', () => {
   gulp.src('./app/**/*.scss')
     .pipe(maps.init())
     .pipe(sass().on('error', sass.logError))
-    // .pipe(minifyCss())
+    .pipe(minifyCss())
     .pipe(maps.write('./'))
     .pipe(gulp.dest('./build'));
 });
@@ -67,6 +67,11 @@ gulp.task('sass:dev', () => {
 gulp.task('css:dev', ['sass:dev'], () => {
   return gulp.src('app/styles/main.css')
     .pipe(gulp.dest('./build'));
+});
+
+gulp.task('img:dev', () => {
+  gulp.src('app/img/*')
+  .pipe(gulp.dest('./build/img'));
 });
 
 gulp.task('webpack:test', () => {
