@@ -13,14 +13,16 @@ $black: black;
 
 header {
   position: relative;
-  img.logo {
+  background: $black;
+  height:70px;
+  .logo {
     float: left;
     margin-top: 15px;
     margin-left: 2%;
     width: 40px;
   }
 
-  img.hamburger {
+  .hamburger {
     @media(min-width: 768px) {
       display: none;
     }
@@ -29,31 +31,33 @@ header {
     width: 60px;
     right: 1%;
     top: 15%;
-
   }
-  .menu {
-    nav ul {
-      max-height: 0;
-      width: 100%;
 
-
-      .me {
-        max-height: 20em;
-        transition: max-height 0.5s;
-        -webkit-transition: max-height 0.5s;
-        -ms-transition: max-height 0.5s;
-        -moz-transition: max-height 0.5s;
-        -o-transition: max-height 0.5s;
+  nav {
+    .desktop {
+      display:none;
+      @media (min-width: 768px) {
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        overflow: hidden;
+        width: 100%;
+        color: $white;
       }
     }
-    li {
-      display: none;
-      @media (min-width: 768px) {
-        display: inline-block;
-        margin-left: 10%;
-        margin-top: 40px;
+  }
+  nav {
+    ul.mobile {
+      display:inline-block;
+      @media(min-width:768px) {
+        display: none;
       }
-      color: $white;
+      li {
+        width: 100%;
+        bottom:0;
+        list-style: none;
+        color: $white;
+      }
     }
   }
 }
