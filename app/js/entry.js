@@ -10,8 +10,8 @@ fitCliqueApp.config(['$routeProvider', function($rp) {
   $rp
   .when('/user', {
     templateUrl: 'templates/user/views/user_view.html',
-    controller: 'UserController',
-    controllerAs: 'userctrl'
+    controller: 'MapController',
+    controllerAs: 'mapCtrl'
   })
   .when('/signin', {
     templateUrl: 'templates/auth/views/sign_in_view.html',
@@ -21,6 +21,11 @@ fitCliqueApp.config(['$routeProvider', function($rp) {
   .when('/signup', {
     templateUrl: 'templates/auth/views/sign_up_view.html',
     controller: 'SignUpController',
+    controllerAs: 'authctrl'
+  })
+  .when('/resync', {
+    templateUrl: 'templates/auth/views/sign_in_view.html',
+    controller: 'ResyncController',
     controllerAs: 'authctrl'
   })
   .otherwise({
