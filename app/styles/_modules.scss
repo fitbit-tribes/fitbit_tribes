@@ -1,9 +1,8 @@
-$white: white;
-$black: black;
-
 #map {
   width: 500px;
   height: 400px;
+  border: 3px solid $black;
+  border-radius: 15px;
 }
 .infoWindowContent {
   font-size:  14px !important;
@@ -20,6 +19,7 @@ header {
     margin-top: 15px;
     margin-left: 2%;
     width: 40px;
+
   }
 
   .hamburger {
@@ -31,57 +31,86 @@ header {
     width: 60px;
     right: 1%;
     top: 15%;
-  }
 
-  nav {
-    .desktop {
-      display:none;
-      @media (min-width: 768px) {
-        position: absolute;
-        display: inline-block;
-        top: 0;
-        overflow: hidden;
-        width: 100%;
-        color: $white;
-      }
-    }
   }
-  nav {
-    ul.mobile {
-      display:inline-block;
-      @media(min-width:768px) {
-        display: none;
+    ul {
+      display: none;
+      background: $black;
+      position: absolute;
+      top: 70px;
+      width: 100%;
+      text-align: center;
+      z-index: 1000;
+      &.active {
+        display: block;
       }
       li {
-        width: 100%;
-        bottom:0;
-        list-style: none;
+        margin-top: 2%;
+       &:nth-child(3) {
+         margin-bottom: 2%;
+       }
+      }
+      a {
         color: $white;
+        text-decoration: none;
+      }
+      @media(min-width:768px) {
+        position:static;
+        width: auto;
+        display: block !important;
+        flex-direction: row;
+        justify-content: center;
+
+        li {
+          display: inline-block;
+          margin-top: 40px;
+          margin-left: 3%;
+          a {
+            color: $white;
+            text-decoration: none;
+          }
+          a:hover {
+            color: $blue;
+          }
+        }
       }
     }
-  }
 }
-
 #banner-container {
   position: relative;
   width: 100%;
   background-image: url("../img/stairs-man-person-walking.png");
   background-size: contain;
+  border-bottom: 1px solid $white;
   @media(min-width:395px) {
-    background-position: 40% 60%;
+    background-position: 30% 60%;
     background-size: cover;
-    height: 600px;
+    height: 450px;
   }
   background-repeat: no-repeat;
   height: 300px;
   h1 {
     position: absolute;
     color: $white;
-    font-size: 1.5em;
+    font-size: 1.414em;
     @media(min-width:395px) {
-      font-size: 3em;
+      font-size: 3.998em;
     }
-    bottom: 35%;
-    left: 15%;
+    bottom: 20%;
+    left: 10%;
+  }
+}
+
+h3 {
+  color: $white;
+  font-size: 1.414em;
+  margin: 2%;
+}
+
+#beststeps, #bestdistance, #userdata {
+  li {
+    font-size: 1em;
+    margin: 1%;
+    color: $white;
   }
 }
