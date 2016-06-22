@@ -6,6 +6,11 @@ const async = require('async');
 
 let zipcodeRouter = module.exports = Router();
 
+//I would move a lot of this logic into separate functions/files, this is getting
+//a little cluttered and it's hard to tell what overall "task" you're trying
+//to accopmlish with each block of functions. It might help to move all these
+//'let' values into objects
+
 zipcodeRouter.route('/zipcode')
 
 .get((req, res) => {

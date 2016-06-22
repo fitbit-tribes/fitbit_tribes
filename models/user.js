@@ -52,6 +52,8 @@ userSchema.methods.generateFindHash = function(cb) {
           return cb(new Error('could not generate hash'));
         }
         return timeout = setTimeout(() => {
+          //in production you probably don't need a 1 second timeout, you also
+          //might be better off using a GUID or UUID library
           _generateFindHash();
           tries++;
         }, 1000);

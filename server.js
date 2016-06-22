@@ -16,6 +16,9 @@ app.use('/api', userRouter);
 app.use('/api', authRouter);
 app.use('/api', zipcodeRouter);
 
+//you might want to put a comment in here as to why this is not in the authRouter
+//I'm assuming this is for the OAuth portion of the app. You could also by the 
+//way add the # portion of the route to your OAuth callback route.
 app.get('/signup', (req, res) => {
   res.redirect('/#' + req.url);
 });
