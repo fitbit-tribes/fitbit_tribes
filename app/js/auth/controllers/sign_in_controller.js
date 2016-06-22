@@ -24,6 +24,7 @@ module.exports = function(app) {
               url: config.baseUrl + '/api/user/' + currentUser._id
             }).then((res) => {
               fbUserAuth.user = res.data;
+              //once again you may want to reevaluate the use of series here
               async.series([
                 function(cb) {
                   fbUserAuth.updateFbUserToken((err) => {

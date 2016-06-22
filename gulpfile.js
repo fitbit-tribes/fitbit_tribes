@@ -74,6 +74,8 @@ gulp.task('img:dev', () => {
   .pipe(gulp.dest('./build/img'));
 });
 
+//seems like you're using two different forms of indentation in
+//this file, one where you indent the .pipe and one where you don't
 gulp.task('webpack:test', () => {
   return gulp.src('test/unit/test_entry.js')
   .pipe(webpackStream({

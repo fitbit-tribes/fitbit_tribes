@@ -17,14 +17,13 @@ module.exports = function(app) {
           },
           data: 'grant_type=authorization_code' +
             '&clientId=' + process.env.CLIENT_ID +
-            // 'redirect_uri': 'https%3A%2F%2Ffit-cliques.herokuapp.com%2Fsignup',
             '&redirect_uri=http%3A%2F%2Flocalhost:5555%2Fsignup' +
             '&code=' + urlCode
         }).then((res) => {
           this.user.fbToken = res.data.access_token;
           this.user.fbRefreshToken = res.data.refresh_token;
           this.user.fbUserId = res.data.user_id;
-          if (cb) cb();
+          if (cb) cb(); //I would check for typeof function
         }, handleError(this.errors, 'could not get tokens'));
       },
 
@@ -140,7 +139,6 @@ module.exports = function(app) {
           },
           data: 'grant_type=authorization_code' +
             '&clientId=' + process.env.CLIENT_ID +
-            // 'redirect_uri': 'https%3A%2F%2Ffit-cliques.herokuapp.com%2Fresync',
             '&redirect_uri=http%3A%2F%2Flocalhost:5555%2Fresync' +
             '&code=' + urlCode
         }).then((res) => {

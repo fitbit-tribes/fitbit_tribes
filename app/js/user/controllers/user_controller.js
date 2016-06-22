@@ -5,7 +5,7 @@ module.exports = function(app) {
     this.user = [];
     this.errors = [];
     var crud = new Resource(this.user, this.errors, baseUrl + '/api/user',
-    { errMessage: { getAll: 'custom error message' } });
+    { errMessage: { getAll: 'custom error message' } });//this is probably not something you really want
     this.getAll = crud.getAll.bind(crud);
     this.createUser = function() {
       crud.create(this.newUser)

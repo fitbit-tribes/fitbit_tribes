@@ -9,6 +9,8 @@ module.exports = function(app) {
     this.buttonText = 'Create New User';
 
     this.authenticate = function(user) {
+      //this seems like a lot of requests to make in series. Do you really need
+      //them all to complete before taking next steps? 
       async.series([
         function(cb) {
           fbUserAuth.getFbTokens($routeParams.code, cb);
