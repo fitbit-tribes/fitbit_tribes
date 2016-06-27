@@ -78,17 +78,15 @@ header {
 }
 #banner-container {
   position: relative;
-  width: 100%;
   background-image: url("../img/stairs-man-person-walking.png");
-  background-size: contain;
+  height: 300px;
+  width: 100%;
+  background-repeat: no-repeat;
   border-bottom: 1px solid $white;
   @media(min-width:395px) {
     background-position: 30% 60%;
     background-size: cover;
-    height: 450px;
   }
-  background-repeat: no-repeat;
-  height: 300px;
   h1 {
     position: absolute;
     color: $white;

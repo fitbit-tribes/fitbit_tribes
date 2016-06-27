@@ -25,6 +25,7 @@
   </header>
   <div id="banner-container">
     <h1>FitCliques</h1>
+    <div id="wrapper"></div>
   </div>
   <div data-ng-controller="AuthController as globalAuth" data-ng-init="globalAuth.getUsername()">
     <p data-ng-if="globalAuth.username">Hello: {{ globalAuth.username }} <a href data-ng-click="globalAuth.logout()">Logout</a>
@@ -41,6 +42,5 @@
       $(this).toggleClass('active');
     })
   </script>
-  <script src="./bundle.js"</script>
   </body>
   </html>
