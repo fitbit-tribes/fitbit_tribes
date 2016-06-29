@@ -37,10 +37,13 @@
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="./bundle.js"></script>
   <script>
-    $('.hamburger').on('click', function() {
-      $('.navigation').slideToggle();
-      $(this).toggleClass('active');
-    })
+    $.noConflict();
+    jQuery(document).ready(function($) {
+      $('.hamburger').on('click', function() {
+        $('.navigation').slideToggle();
+        $(this).toggleClass('active');
+      })
+    });  
   </script>
   </body>
   </html>
