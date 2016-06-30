@@ -11,6 +11,9 @@ section {
     display: flex;
     flex-direction: column;
     width: 75%;
+    @media(min-width: 768px) {
+      width: 45%;
+    }
     padding: 1%;
 
     label {

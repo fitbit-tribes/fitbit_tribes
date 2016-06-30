@@ -13,17 +13,19 @@
 </head>
 <body data-ng-app="fitCliqueApp">
   <header>
-    <nav class="menu">
-      <img class="logo" src="http://s33.postimg.org/mfg7ygg27/Drawing.png" />
-      <ul>
-        <li><a href="https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=227THV&redirect_uri=https%3A%2F%2Ffit-cliques.herokuapp.com%2Fsignup&scope=activity%20profile&expires_in=604800">Sign Up</a></li>
-        <li><a href="/#/signin">Sign In</a></li>
-        <li><a href="/#/user">Statistics</a></li>
-      </ul>
-    </nav>
+    <a href="/#/signin"><img class="logo" src="http://s33.postimg.org/mfg7ygg27/Drawing.png" /></a>
+    <div>
+      <img class="hamburger" src="http://s33.postimg.org/z1wvgh1lb/hamburger.png"   />
+    </div>
+    <ul class="navigation">
+      <li><a href="https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=227THV&redirect_uri=https%3A%2F%2Ffit-cliques.herokuapp.com%2Fsignup&scope=activity%20profile&expires_in=604800">Sign Up</a></li>
+      <li><a href="/#/signin">Sign In</a></li>
+      <li><a href="/#/user">Statistics</a></li>
+    </ul>
   </header>
   <div id="banner-container">
     <h1>FitCliques</h1>
+    <div id="wrapper"></div>
   </div>
   <div data-ng-controller="AuthController as globalAuth" data-ng-init="globalAuth.getUsername()">
     <p data-ng-if="globalAuth.username">Hello: {{ globalAuth.username }} <a href data-ng-click="globalAuth.logout()">Logout</a>
@@ -31,6 +33,17 @@
     <main data-ng-view>
     </main>
   </div>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="./bundle.js"></script>
-</body>
-</html>
+  <script>
+    $.noConflict();
+    jQuery(document).ready(function($) {
+      $('.hamburger').on('click', function() {
+        $('.navigation').slideToggle();
+        $(this).toggleClass('active');
+      })
+    });  
+  </script>
+  </body>
+  </html>

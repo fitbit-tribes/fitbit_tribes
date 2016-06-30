@@ -11,46 +11,82 @@
 }
 
 header {
-  nav {
-    img.logo {
-      float: left;
-      margin-top: 15px;
-      margin-left: 2%;
-      width: 40px;
-    }
-    ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+  position: relative;
+  background: $black;
+  height:70px;
+  .logo {
+    float: left;
+    margin-top: 15px;
+    margin-left: 2%;
+    width: 40px;
 
+  }
+
+  .hamburger {
+    @media(min-width: 768px) {
+      display: none;
+    }
+    display:block;
+    position: absolute;
+    width: 60px;
+    right: 1%;
+    top: 15%;
+
+  }
+    ul {
+      display: none;
+      background: $black;
+      position: absolute;
+      top: 70px;
+      width: 100%;
+      text-align: center;
+      z-index: 1000;
+      &.active {
+        display: block;
+      }
       li {
-        display: inline-block;
-        // margin-left: 10%;
-        margin-top: 40px;
-        a {
-          color: $white;
-          text-decoration: none;
-        }
-        a:hover {
-          color: $blue;
+        margin-top: 2%;
+       &:nth-child(3) {
+         margin-bottom: 2%;
+       }
+      }
+      a {
+        color: $white;
+        text-decoration: none;
+      }
+      @media(min-width:768px) {
+        position:static;
+        width: auto;
+        display: block !important;
+        flex-direction: row;
+        justify-content: center;
+
+        li {
+          display: inline-block;
+          margin-top: 40px;
+          margin-left: 3%;
+          a {
+            color: $white;
+            text-decoration: none;
+          }
+          a:hover {
+            color: $blue;
+          }
         }
       }
     }
-  }
 }
-
 #banner-container {
   position: relative;
-  width: 100%;
-  background-image: url("../img/stairs-man-person-walking.png");
-  background-size: contain;
-  @media(min-width:395px) {
-    background-position: 30% 80%;
-    background-size: cover;
-    height: 250px;
-  }
-  background-repeat: no-repeat;
+  background-image: url("../img/stairs-man-person-walking-min.jpg");
   height: 300px;
+  width: 100%;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid $white;
+  @media(min-width:395px) {
+    background-position: 30% 60%;
+    background-size: cover;
+  }
   h1 {
     position: absolute;
     color: $white;
